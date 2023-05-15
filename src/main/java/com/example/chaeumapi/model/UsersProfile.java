@@ -2,13 +2,13 @@ package com.example.chaeumapi.model;
 
 import java.sql.Date;
 
-public class UserProfile {
+public class UsersProfile {
     private String c_name;
     private String c_id;
     private String c_pw;
     private Date c_date;
 
-    public UserProfile(String c_name, String c_id, String c_pw, Date c_date) {
+    public UsersProfile(String c_name, String c_id, String c_pw, Date c_date) {
         super();
         this.c_name = c_name;
         this.c_id = c_id;
