@@ -1,5 +1,6 @@
 package com.example.chaeumapi.model;
 
+
 import java.sql.Date;
 
 public class UsersProfile {
