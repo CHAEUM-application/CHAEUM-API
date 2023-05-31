@@ -13,7 +13,7 @@ public class TodoController {
     public TodoController(TodoMapper mapper) { this.mapper = mapper; }
 
     @GetMapping("/todo/{id}")
-    public TodoProfile getTodo(@PathVariable("id") String id) {return mapper.getTodo(id);}
+    public List<TodoProfile> getTodo(@PathVariable("id") String id) {return mapper.getTodo(id);}
 
     @GetMapping("/todo/all")
     public List<TodoProfile> getTodoList() { return mapper.getTodoList();}
@@ -25,12 +25,19 @@ public class TodoController {
         mapper.insertTodo(id, year, month, week, text, status);
     }
 
-    @PutMapping("/todo/{id}/{year}/{month}/{week}")
-    public void PutTodo(@PathVariable("id") String id, @PathVariable("year") String year,
-                         @PathVariable("month") String month, @PathVariable("week") String week,
-                         @RequestParam("text") String text){
-        mapper.updateTodo(id, year, month, week, text);
+    @PutMapping("/todo/{id}")
+    public int PutTodo(@PathVariable("id") String id, @RequestParam("year") String year,
+                         @RequestParam("month") String month, @RequestParam("week") String week,
+                         @RequestParam("req_text") String req_text, @RequestParam("res_text") String res_text,
+                        @RequestParam("status") int status) {
+        if (status < 0) {
+            return mapper.updateTodo(id, year, month, week, req_text, res_text);
+        }
+        else{
+            return mapper.updateStatus(id, year, month, week, res_text, status);
+        }
     }
+
 
     @DeleteMapping("/todo/{id}/{year}/{month}/{week}/{text}")
     public void deleteTodo(
