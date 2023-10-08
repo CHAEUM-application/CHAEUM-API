@@ -7,8 +7,9 @@ public class TodoProfile {
     private String week;
     private String text;
     private int status;
+    private int feel;
 
-    public TodoProfile(String id, String year, String month, String week, String text, int status) {
+    public TodoProfile(String id, String year, String month, String week, String text, int status, int feel) {
         super();
         this.id = id;
         this.year = year;
@@ -16,6 +17,7 @@ public class TodoProfile {
         this.week = week;
         this.text = text;
         this.status = status;
+        this.feel = feel;
     }
 
     public String getId() {
@@ -65,4 +67,8 @@ public class TodoProfile {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    public int getFeel() { return feel; }
+
+    public void setFeel(int feel) { this.feel = feel; }
 }

@@ -21,8 +21,8 @@ public class TodoController {
     @PostMapping("/todo/{id}")
     public void PostTodo(@PathVariable("id") String id, @RequestParam("year") String year,
                          @RequestParam("month") String month, @RequestParam("week") String week,
-                         @RequestParam("text") String text, @RequestParam("status") int status){
-        mapper.insertTodo(id, year, month, week, text, status);
+                         @RequestParam("text") String text, @RequestParam("status") int status, @RequestParam("feel") int feel){
+        mapper.insertTodo(id, year, month, week, text, status, feel);
     }
 
     @PutMapping("/todo/{id}")
